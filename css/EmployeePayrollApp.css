@@ -170,7 +170,8 @@ select {
     text-align: center;
   }
   
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 960px) 
+  {
     .cancelButton {
       margin-left: 0px;
     }
@@ -180,7 +181,8 @@ select {
     }
   }
   
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 600px)
+   {
     .form {
       margin-top: 10px;
     }
@@ -208,4 +210,75 @@ select {
       flex-direction: column-reverse;
       align-items: flex-start;
     }
+  }
+
+  /* UC7 */
+  @media only screen and (max-width: 960px) {
+    .row-content {
+        display: block;
+        flex-direction: row;
+        margin-bottom: 10px;
+        align-items: center;
+        border: 0px solid green;
+    }
+    .profile 
+    {
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 12px;
+    }
+    .cancelButton {
+      margin-left: 100px;
+    }
+    .form {
+      width: 100%;
+      padding: 44px 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .row-content {
+        display: block;
+        flex-direction: row;
+        margin-bottom: 10px;
+        align-items: center;
+        border: 0px solid green;
+    }
+    .form {
+      margin-top: 10px;
+      width: 100%;
+    }
+    .row {
+      flex-direction: column;
+    }
+    .uploadButton {
+      justify-content: flex-start;
+    }
+    .profile 
+    {
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 12px;
+    }
+    .profile-radio-button {
+      flex-flow: wrap;
+    }
+    .submit-reset {
+      width: 100%;
+      display: inline-block;
+      flex-grow: 1;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .submitButton {
+      margin: 0;
+    }
+    .buttonParent {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+    .cancelButton {
+        margin-left: 100px;
+      }
   }

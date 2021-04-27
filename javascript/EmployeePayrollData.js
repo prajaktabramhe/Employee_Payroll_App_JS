@@ -9,20 +9,24 @@ class EmployeePayrollData
       this.date = params[4];
     }
  //getter and setter method
-  get id()
+
+get id()
 {
     return this._id;
 }
-  set id(id)
+set id(id)
+
 {
     this._id = id;
 }
 
-  get name() 
+
+get name() 
 {
       return this._name;
 }
-  set name(name)
+set name(name)
+
 {
       let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
        

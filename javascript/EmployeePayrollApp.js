@@ -9,21 +9,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         try 
         {
-            (new EmployeePayrollData()).name = name.value;;
+            (new EmployeePayrollData()).name = name.value;
             textError.textContent = "";
         } catch (e) 
         {
             textError.textContent = e;
         }
     });
-});
 
 
-//UC8 salary Range
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-//in range button the output shown should always be equal to value the user is updating
-output.textContent = salary.value;
-salary.addEventListener('input', function () {
+
+    //UC8 salary Range
+    const salary = document.querySelector('#salary');
+    const output = document.querySelector('.salary-output');
+    //in range button the output shown should always be equal to value the user is updating
     output.textContent = salary.value;
+    salary.addEventListener('input', function() {
+        output.textContent = salary.value;
+   });
 });

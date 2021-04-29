@@ -1,13 +1,6 @@
 class EmployeePayrollData 
 {
-    constructor(...params) 
-    {
-      this.id = params[0];
-      this.name = params[1];
-      this.salary = params[2];
-      this.gender = params[3];
-      this.date = params[4];
-    }
+   
  //getter and setter method
 
 get id()
@@ -46,7 +39,7 @@ get geneder()
 {
   return this._gender;
 }
-set gender()
+set gender(gender)
 {
   this._gender = gender;
 }
@@ -91,9 +84,9 @@ toString()
   {
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         //if start date is not in the given datatype it will pass the value undefined to empdate
-        const empDate = !this.startDate ? "undefined" :
-        this.startDate;
+        
+        const empDate = !this._startDate ? "undefined" : this._startDate.toLocaleDateString("en-US", options);
         //here in return for start date we are passing empDate as value                
-        return "id=" + this.id + ", name='" + this.name + ", gender='" + this.gender + ", profilePic=" +  ", department =" + this.department, ",salary=" + this.salary + ", startDate=" + empDate + ", note =" + this.note;
+        return "id=" + this._id + ", name=" + this._name + " gender= " +this._gender+ " profilePic= "+this.profilePic + " department= "+this._department + " salary= "+ this._salary+ " Note= "+this._note +  " startDate =" + empDate;
   }
 }

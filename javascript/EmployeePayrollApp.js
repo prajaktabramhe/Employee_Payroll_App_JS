@@ -9,8 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
         try 
         {
-            console.log("bind" , name.value);
-            (new EmployeePayrollData()).name = name.value;
+          (new EmployeePayrollData()).name = name.value;
             textError.textContent = "";
         } catch (e) 
         {

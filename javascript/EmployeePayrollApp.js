@@ -29,10 +29,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 });
 const save = () => {
-    console.log("outside save function");
     try {
         console.log("save function");
         let employeePayrollData = createEmployeePayroll();
+        localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollData.toString()));
+
     } catch (e) {
         return;
    }
@@ -49,8 +50,8 @@ function createAndUpdateStorage(employeePayrollData)
                 EmployeePayrollList = [employeePayrolData]
                 
             }
-        alert(EmployeePayrollList.toString());
-        localStorage.setItem("EmployeePayrollList", JSON.stringify(EmployeePayrollList));
+            localStorage.setItem("EmployeePayrollList", JSON.stringify(EmployeePayrollList));
+            alert(EmployeePayrollList.toString());
 }
 //Use Case 13
 

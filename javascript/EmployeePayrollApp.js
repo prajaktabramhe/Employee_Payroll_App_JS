@@ -67,6 +67,7 @@ const createEmployeePayroll = () => {
         setTextValue('.text-error', e);
         throw e;
     }
+        employeePayrollData.id = randomNumber();
         employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
         employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
         employeePayrollData.department = getSelectedValues('[name=department]');
@@ -77,6 +78,10 @@ const createEmployeePayroll = () => {
         alert(employeePayrollData.toString());
         return employeePayrollData;
 
+    }
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 10000) + 1);
     }
 
     const getSelectedValues = (propertyValue) => {

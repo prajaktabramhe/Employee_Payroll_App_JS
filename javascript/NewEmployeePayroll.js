@@ -1,8 +1,8 @@
-// let empPayrollList;
+ let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
-    let empPayrollList = getEmployeePayrollDataFromStorage();
-    document.querySelector(".emp-count").textContent = empPayrollList.length;
-    createInnerHtml(empPayrollList);
+    empPayrollList = getEmployeePayrollDataFromStorage();
+    document.querySelector(".emp-count").textContent = empPayrollList?.length;
+    createInnerHtml();
     });
 
 const getEmployeePayrollDataFromStorage = () => {
@@ -11,24 +11,23 @@ const getEmployeePayrollDataFromStorage = () => {
 
 }
 
-const createInnerHtml = (empPayrollList) =>  {
-    console.log(empPayrollList);
-    if(empPayrollList.length == 0) return;
+const createInnerHtml = () =>  {
+    if(empPayrollList?.length == 0) return;
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>start Date</th><th>Actions</th></tr>"; 
     let innerHtml = `${headerHtml}`;
     
     for(const empPayrollData of empPayrollList) {
         innerHtml = `${innerHtml}
         <tr>
-        <td><img class="profile" src="${empPayrollData.profilePic}"   alt=""></td>
+        <td><img class="profile" src="${empPayrollData.profilePic}"  alt=""></td>
         <td>${empPayrollData._name}</td>
         <td>${empPayrollData._gender}</td>
         <td>${getDeptHtml(empPayrollData._department)}</td>
         <td>${empPayrollData._salary}</td>
-        <td>${empPayrollData.date}</td>
+        <td>${stringifyDate(empPayrollData.date)}</td>
         <td>
-            <img id="${empPayrollData._id}" onclick="remove(this)" alt="delete" width="30px" src="../assets/icons/delete-black-18dp.svg">
-            <img id="${empPayrollData._id}" onclick="update(this)" alt="edit" width="30px" src="../assets/icons/create-black-18dp.svg">
+            <img id="${empPayrollData._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="delete">
+            <img id="${empPayrollData._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg" alt="edit" >
         </td>
     </tr>`
     }
@@ -43,3 +42,17 @@ const getDeptHtml = (deptList) => {
     }
     return deptHtml ;
 };
+
+//remove function
+const remove = (node) => {
+    // console.log("harsha69", node.id, "harsha70",node._id);
+    let empPayrollData = empPayrollList.find((empData) => empData._id == node.id);
+     console.log("Harsha72",empPayrollData);
+    if (!empPayrollData) return;
+    const index = empPayrollList.map((empData) => empData._id)
+                 .indexOf(empPayrollData._id);
+    empPayrollList.splice(index, 1);
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    document.querySelector(".emp-count").textContent = empPayrollList?.length;
+    createInnerHtml();
+}

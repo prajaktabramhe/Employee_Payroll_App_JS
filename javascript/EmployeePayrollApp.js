@@ -32,7 +32,8 @@ const save = () => {
     try {
         console.log("save function");
         let employeePayrollData = createEmployeePayroll();
-        localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollData.toString()));
+        createAndUpdateStorage(employeePayrollData);
+       // console.log("Welcome to",employeePayrollData);
 
     } catch (e) {
         return;
@@ -40,18 +41,17 @@ const save = () => {
 }
 function createAndUpdateStorage(employeePayrollData)
 {
-    let EmployeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-        if(EmployeePayrollList != undefined)
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+        if(employeePayrollList != undefined)
             {
-                EmployeePayrollList.push(employeePayrollData);
+                employeePayrollList.push(employeePayrollData);
             } 
         else 
             {
-                EmployeePayrollList = [employeePayrolData]
-                
+                employeePayrollList = [employeePayrollData]
             }
-            localStorage.setItem("EmployeePayrollList", JSON.stringify(EmployeePayrollList));
-            alert(EmployeePayrollList.toString());
+            localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
+            alert(employeePayrollList.toString());
 }
 //Use Case 13
 
@@ -68,7 +68,6 @@ const createEmployeePayroll = () => {
         throw e;
     }
         employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
-    
         employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
         employeePayrollData.department = getSelectedValues('[name=department]');
         employeePayrollData.salary = getInputValueById('#salary');

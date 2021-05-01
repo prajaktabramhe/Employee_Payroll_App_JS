@@ -7,22 +7,32 @@ window.addEventListener('DOMContentLoaded', (event) => {
     name.addEventListener('input', function() {
         if (name.value.length == 0) 
         {
-            textError.textContent = "";
+            setTextValue('.text-error');
             return;
         }
         try 
         {
           (new EmployeePayrollData()).name = name.value;
-            textError.textContent = "";
+          setTextValue('.text-error', "");
         } catch (e) 
         {
-            textError.textContent = e;
+            setTextValue('.text-error',e);
         }
-
-        
+       
     });
 
-  
+  const date = document.querySelector('#date');
+  date.addEventListener('input', function() {
+      const startDate = new Date(Date.parse(getInputElementValue('#day')+" " + getInputValueById('#month')+" " + getInputValueById('#year')));
+ try {
+     (new EmployeePayrollData()).startDate = startDate;
+     setTextValue('.date-error',"");
+ } catch (e) {
+     setTextValue('.date-error', e);
+ }
+    });
+
+
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
      //in range button the output shown should always be equal to value the user is updating

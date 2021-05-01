@@ -149,16 +149,18 @@ const checkForUpdate = () => {
     setForm();
 }
 
+
 const setForm = () => {
    
     setValue('#name', employeePayrollObj._name);
-    setSelectedValues('[name=profile]', employeePayrollObj._profilePic);
+    setSelectedValues('[name=profile]', employeePayrollObj.profilePic);
+    console.log("Pic",employeePayrollObj._profilePic);
     setSelectedValues('[name=gender]', employeePayrollObj._gender);
     setSelectedValues('[name=department]', employeePayrollObj._department);
     setValue('#salary',employeePayrollObj._salary);
     setTextValue('.salary-output', employeePayrollObj._salary);
     setValue('#notes',employeePayrollObj._note);
-    let date = stringifyDate(employeePayrollObj._startDate).split(" ");
+    let date = stringifyDate(employeePayrollObj.date).split(" ");
     console.log("Date",date);
     setValue('#day', date[0]);
    

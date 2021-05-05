@@ -21,15 +21,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
        
     });
 
-  const date = document.querySelector('#date');
-  date.addEventListener('input', function() {
-      const startDate = new Date(Date.parse(getInputElementValue('#day')+" " + getInputValueById('#month')+" " + getInputValueById('#year')));
- try {
-     (new EmployeePayrollData()).startDate = startDate;
-     setTextValue('.date-error',"");
- } catch (e) {
-     setTextValue('.date-error', e);
- }
+        const date = document.querySelector('#date');
+        date.addEventListener('input', function() {
+            const startDate = new Date(Date.parse(getInputElementValue('#day')+" " + getInputValueById('#month')+" " + getInputValueById('#year')));
+        try {
+            (new EmployeePayrollData()).startDate = startDate;
+            setTextValue('.date-error',"");
+        } catch (e) {
+            setTextValue('.date-error', e);
+        }
     });
 
 

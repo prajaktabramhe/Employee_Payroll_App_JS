@@ -111,7 +111,6 @@ function createAndUpdateStorage()
             }
             alert(employeePayrollList.toString());
             localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
-           
 }
 
 const createEmployeePayrollData = (id) => {
@@ -144,6 +143,7 @@ const setEmployeePayrollData = (employeePayrollData) => {
     alert(employeePayrollData.toString());
 }
 
+
 const createNewEmployeeId = () => {
     let empID = localStorage.getItem("EmployeeID");
     empID = !empID ? 1 : (parseInt(empID) + 1).toString();
@@ -152,38 +152,6 @@ const createNewEmployeeId = () => {
 }
 
 
-//Use Case 13
-/*
-const createEmployeePayroll = () => {
-    
-    let employeePayrollData = new EmployeePayrollData();
-    try 
-    {
-        employeePayrollData.name = getInputValueById('#name');
-    } 
-    catch (e) 
-    {
-        setTextValue('.text-error', e);
-        throw e;
-    }
-        employeePayrollData.id = randomNumber();
-        employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
-        employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
-        employeePayrollData.department = getSelectedValues('[name=department]');
-        employeePayrollData.salary = getInputValueById('#salary');
-        employeePayrollData.note = getInputValueById('#notes');
-        let date = getInputValueById('#day') +" "+ getInputValueById('#month') +" "+ getInputValueById('#year');
-        employeePayrollData.date = Date.parse(date);
-        alert(employeePayrollData.toString());
-        return employeePayrollData;
-
-    }
-*/
-/*
-    const randomNumber = () => {
-        return Math.floor((Math.random() * 10000) + 1);
-    }
-*/
     const getSelectedValues = (propertyValue) => {
     console.log(propertyValue);
     let allItems = document.querySelectorAll(propertyValue);

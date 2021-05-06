@@ -22,7 +22,7 @@
    </header> 
  <!-- UC2: -->
    <div id="formId" class="form-content">
-    <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+    <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
 
         <div class="form-head">Employee Payroll form </div>
           <div class="row-content">
@@ -93,8 +93,8 @@
 
         <!-- UC5: Adding Start Date -->
         <div class="row-content">
-            <label class="label text" for="startDate"> Start Date </label>
-            <div>
+            <label class="label text" for="date"> Start Date </label>
+            <div id="date">
             <select id="day" name="Day">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -143,6 +143,7 @@
                 <option value="Dec">December</option>
             </select>
             <select id="year" name="Year">
+                <option value="2021">2021</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
@@ -150,6 +151,7 @@
                 <option value="2016">2016</option>
              </select>
         </div>
+        <error-output class="date-error" for="date"></error-output>
         </div>
          <!----UC6---->
        <div class="row-content">
